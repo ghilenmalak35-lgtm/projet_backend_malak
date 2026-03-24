@@ -5,8 +5,15 @@ from .model import Client
 from .schema import Create_client
 app = FastAPI()
 Base.metadata.create_all(bind=engine)
+
 router = APIRouter(prefix="/clients", tags=["clients"])
+<<<<<<< HEAD
+
 routerclient = APIRouter(prefix="/clients", tags=["clients"])
+
+=======
+routerclient = APIRouter(prefix="/clients", tags=["clients"])
+>>>>>>> 940f4b47a49956917d60823dd0752fff28b2bcb4
 def get_db():
     db = SessionLocal()
     try:
@@ -17,6 +24,10 @@ def get_db():
 @router.post("/createclient")
 
 @routerclient.post("/createclient")
+<<<<<<< HEAD
+
+=======
+>>>>>>> 940f4b47a49956917d60823dd0752fff28b2bcb4
 def CreateClient(client_data:Create_client, db: Session = Depends(get_db)):
     client = Client(firstname=client_data.firstname,lastname=client_data.lastname,email=client_data.email,tel=client_data.tel,adresse=client_data.adresse)
     db.add(client)
@@ -81,8 +92,11 @@ def delete_Student(Client_id: int, db: Session = Depends(get_db)):
     db.delete(Clientes)
     db.commit()
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 940f4b47a49956917d60823dd0752fff28b2bcb4
 @routerclient.put("/cliental/{Client_id}",status_code=status.HTTP_204_NO_CONTENT)
 def delete_Clientt(Client_id: int, db: Session = Depends(get_db)):
     Clientess = db.query(Client).filter(Client.id == Client_id).first()
